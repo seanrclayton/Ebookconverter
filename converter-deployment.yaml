@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docverter-deployment
+  labels:
+    app: docverter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docverter
+  template:
+    metadata:
+      labels:
+        app: docverter
+    spec:
+      containers:
+      - name: converter
+        image: seanrclayton/docverter
+        ports:
+        - containerPort: 3000
