@@ -6,6 +6,7 @@ const finalhandler = require('finalhandler');
 const app = express()
 var path = require('path');
 const port = 3000
+const host = process.env.CON_HOST ? process.env.CON_HOST : "0.0.0.0"
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
@@ -61,8 +62,9 @@ exec(path.join(__dirname + "/convert.sh"), (error, stdout, stderr) => {
   console.log(`stdout: ${stdout}`);
 });
 });
+console.log(host)
 
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+//app.listen(port, () => {
+//  console.log(`Example app listening at http://localhost:${port}`)
+//})
+app.listen(port,host);

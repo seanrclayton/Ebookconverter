@@ -17,5 +17,8 @@ spec:
       containers:
       - name: converter
         image: seanrclayton/docverter
+        env:
+           - name: CON_HOST
+             value: "http://docverter.home"
         ports:
         - containerPort: 3000
