@@ -39,7 +39,6 @@ app.post('/upload', function(req, res) {
   sampleFile.mv('convertMe/'+filename, function(err) {
     if (err)
       return res.status(500).send(err);
-    res.redirect(301,host+"books")
   });
 });
 
@@ -67,4 +66,4 @@ console.log(host)
 //app.listen(port, () => {
 //  console.log(`Example app listening at http://localhost:${port}`)
 //})
-app.listen(port,"0.0.0.0");
+app.listen(port);

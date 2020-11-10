@@ -17,6 +17,7 @@ spec:
       containers:
       - name: converter
         image: seanrclayton/docverter
+        imagePullPolicy: Always
         env:
            - name: CON_HOST
              value: "http://docverter.home"
