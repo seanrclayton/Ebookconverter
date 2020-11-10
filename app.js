@@ -27,6 +27,7 @@ app.use(fileUpload());
 app.post('/upload', function(req, res) {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
+
   }
 
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
@@ -38,8 +39,7 @@ app.post('/upload', function(req, res) {
   sampleFile.mv('convertMe/'+filename, function(err) {
     if (err)
       return res.status(500).send(err);
-
-    res.send('File uploaded!');
+    res.redirect(301,host+"books")
   });
 });
 
@@ -67,4 +67,4 @@ console.log(host)
 //app.listen(port, () => {
 //  console.log(`Example app listening at http://localhost:${port}`)
 //})
-app.listen(port,host);
+app.listen(port,"0.0.0.0");
